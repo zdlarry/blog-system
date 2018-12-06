@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title><%= title %></title>
+</head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="../../css/chat.css">
+<link href="../../font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
+<body style="background-image: url(http://cn.bing.com<%= bg_url %>)">
+
+<div class="chat_title">
+	<div class="col-md-3 col-sm-3 col-xs-3 column chat_img"></div>
+	<div class="col-md-9 col-sm-9 col-xs-9 column chat_title_contain"><p>WeChat Online</p></div>
+</div>
+
+<div class="panel panel-default load-panel">
+	<div class="load-panel-title">
+		<div class="col-md-9 col-sm-9 col-xs-9 column load-panel-title-contain"><p><span>WeChat</span> Online</p></div>
+		<div class="col-md-3 col-sm-3 col-xs-3 column load-panel-title-spinner">
+			<div class="spinner">
+			  <div class="rect1"></div>
+			  <div class="rect2"></div>
+			  <div class="rect3"></div>
+			  <div class="rect4"></div>
+			  <div class="rect5"></div>
+			</div>
+		</div>
+	</div>
+
+	<div class="load_in_form">
+		<form onsubmit="return chatLogin(this)" role="form">
+			<div class="input-group">
+				<span class="input-group-addon input-addon"><i class="fa fa-user-secret fa-fw"></i></span>
+				<input name="username" placeholder="username" required="" type="text" class="
+				form-control input-text">
+			</div>
+
+			<div class="form-group">
+				<div class="hr10"></div>
+			</div>
+
+			<div class="input-group">
+				<span class="input-group-addon input-addon"><i class="fa fa-key fa-fw"></i></span>
+				<input name="password" placeholder="password" required="" type="password" class="form-control input-text">
+			</div>
+
+			<div class="form-group">
+				<div class="hr10"></div>
+			</div>
+
+			<div class="form-group">
+    			<p class="code-input-info">Please enter the characters you see:</p>
+    		</div>
+
+			<div class="form-group code">
+    			<div class="code-cotain">
+    				<img src="/code" onclick="reShowCode(this)">
+    			</div>
+    			<div class="code-input">
+    				<input type="text" name="code" placeholder="code" required="" class="form-control input-text">
+    			</div>
+    		</div>
+
+    		<div class="form-group">
+				<div class="hr5"></div>
+			</div>
+
+			<div class="form-group">
+				<input value="Login" type="submit" class="btn btn-info form-control input-btn">
+			</div>
+		</form>
+	</div>
+
+	<div class="load-panel-footer">
+		<p>No Account? <a href="../register">Create</a></p>
+	</div>
+</div>
+
+
+<div class="chat_bing">
+	<div class="col-md-6 col-sm-6 col-xs-6 column chat_bing_contain"><p>壁纸来自</p></div>
+	<div class="col-md-6 col-sm-6 col-xs-6 column bing_img"></div>
+</div>
+
+<div class="chat_design">
+	<p>Desgined By Darknight</p>
+</div>
+
+<script src="https://cdn.bootcss.com/jquery/1.7.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="../js/md5.js"></script>
+<script type="text/javascript">
+	const chatLogin = (form) => {
+		let uname = form.username.value
+		let pword = form.password.value
+		let code = form.code.value
+
+		let formdata = new FormData()
+		formdata.append('name', uname)
+		formdata.append('pass', hex_md5(pword))
+		formdata.append('code', code)
+
+		let xmlhttp = new XMLHttpRequest()
+		let postUrl = '/userlogin'
+		xmlhttp.onload = function() {
+			if(this.response === 'false') {
+				$('.input-text').attr('value', '')
+				$('.input-text')[0].focus()
+				alert('账户密码错误')
+			} else if(this.response === 'wrong_code'){
+				$('.input-text').attr('value', '')
+				$('.input-text')[0].focus()
+				alert('验证码错误')
+			} else if (this.response === 'err') {
+				alert('err accur')
+			} else if (this.response === 'true') {
+				window.location.href = '../application/chatpage'
+			}
+		}
+		xmlhttp.open('POST', postUrl, true)
+		xmlhttp.send(formdata)
+
+		return false
+	}
+
+	const reShowCode = (obj) => {
+		$(obj).attr('src', '/code')
+	}
+</script>
+
+</body>
+</html>

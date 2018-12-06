@@ -1,0 +1,1656 @@
+@font-face {
+    font-family:'myfont';
+    src: url('../font/Oswald-Regular.ttf');
+}
+
+@font-face{
+	font-family: 'myfont2';
+	src: url('../font/proximanova.ttf');
+}
+
+@font-face{
+	font-family: 'myfont3';
+	src: url('../font/raleway_300.ttf');
+}
+
+@keyframes fade-in {  
+    0% {opacity: 0;}
+    100% {opacity: 1;}  
+}  
+
+@-webkit-keyframes fade-in {
+    0% {opacity: 0;}   
+    100% {opacity: 1;}  
+}  
+
+@keyframes h-in {  
+    0% {height: 0%;}
+    100% {height: 12%;}  
+}  
+
+@-webkit-keyframes h-in {
+    0% {height: 0%;}
+    100% {height: 12%;}
+}  
+
+body{
+	z-index: -99;
+	height:100%;
+    background:url(../imgs/miku.jpg) no-repeat center;
+    background-size: cover;
+    background-attachment: fixed;
+    overflow: hidden;
+}
+
+.load-panel {
+	z-index: -1;
+	position: absolute;
+	width: 400px;
+	height: 470px;
+	left: 50%;
+	top: 50%;
+	transform: translateY(-50%) translateX(-50%);
+	border: none;
+	border-radius: 4px;
+	background-color: white;
+	animation: fade-in 2.5s linear 2.5s;
+	-webkit-animation:fade-in 2.5s;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+}
+
+.load-panel-title {
+	position: absolute;
+	height: 18%;
+	top:0px;
+	width: 70%;
+	text-align: center;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.load-panel-title-contain {
+	height: 60px;
+	line-height: 60px;
+	top: 50%;
+	transform: translateY(-50%);
+	text-align: right;
+	color: #67CF22;
+}
+
+.load-panel-title-contain p {
+	font-family: myfont3;
+	font-size: 24px;
+}
+
+.load-panel-title-contain p span {
+	color: rgba(26, 144, 222, 1);
+}
+
+.load-panel-title-spinner {
+	height: 40px;
+	text-align: left;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.chat_title {
+	z-index: -5;
+	position: absolute;
+	left: 20px;
+	top:20px;
+	height: 40px;
+	width: 200px;
+	animation: fade-in 1s linear 1s;
+	-webkit-animation:fade-in 1s;
+}
+
+.chat_bing {
+	z-index: -5;
+	position: absolute;
+	right: 20px;
+	bottom: 20px;
+	height: 40px;
+	width: 160px;
+	animation: fade-in 2s linear 2s;
+	-webkit-animation:fade-in 2s;
+}
+
+.chat_design {
+	z-index: -5;
+	position: absolute;
+	left: 20px;
+	bottom: 20px;
+	height: 40px;
+	width: 200px;
+	animation: fade-in 2s linear 2s;
+	-webkit-animation:fade-in 2s;
+	line-height: 40px;
+	text-align: center;
+}
+
+.chat_img {
+	height: 100%;
+	width: 40px;
+	background: url(../imgs/chat.png) no-repeat center;
+	background-size: 100% 100%;
+	filter: brightness(0.7);
+}
+
+.bing_img {
+	height: 90%;
+	background: url(../imgs/bing.png) no-repeat center;
+	background-size: 100% 100%;
+}
+
+.chat_title_contain, .chat_bing_contain{
+	height: 100%;
+	line-height: 40px;
+	text-align: center;
+}
+
+.chat_title_contain p {
+	color: white;
+	font-family: myfont2;
+	font-size: 16px;
+}
+
+.chat_bing_contain p {
+	color: white;
+	font-family: '微软雅黑';
+	font-size: 12px;
+}
+
+.chat_design p {
+	color: white;
+	font-size: 12px;
+	font-family: myfont2;
+}
+
+.spinner {
+  width: 30px;
+  height: 100%;
+  font-size: 10px;
+}
+ 
+.spinner > div {
+  background-color: #67CF22;
+  height: 100%;
+  width: 3px;
+  display: inline-block;
+   
+  -webkit-animation: stretchdelay 1.2s infinite ease-in-out;
+  animation: stretchdelay 1.2s infinite ease-in-out;
+}
+ 
+.spinner .rect2 {
+  -webkit-animation-delay: -1.1s;
+  animation-delay: -1.1s;
+}
+ 
+.spinner .rect3 {
+  -webkit-animation-delay: -1.0s;
+  animation-delay: -1.0s;
+}
+ 
+.spinner .rect4 {
+  -webkit-animation-delay: -0.9s;
+  animation-delay: -0.9s;
+}
+ 
+.spinner .rect5 {
+  -webkit-animation-delay: -0.8s;
+  animation-delay: -0.8s;
+}
+ 
+@-webkit-keyframes stretchdelay {
+  0%, 40%, 100% { -webkit-transform: scaleY(0.4) } 
+  20% { -webkit-transform: scaleY(1.0) }
+}
+ 
+@keyframes stretchdelay {
+  0%, 40%, 100% {
+    transform: scaleY(0.4);
+    -webkit-transform: scaleY(0.4);
+  }  20% {
+    transform: scaleY(1.0);
+    -webkit-transform: scaleY(1.0);
+  }
+}
+
+.input-addon{
+	background-color: #67CF22;
+	color: white;
+	border: none;
+	height: 50px;
+}
+
+.load_in_form {
+	position: absolute;
+	top:18%;
+	height: 70%;
+	width: 80%;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.input-text {
+	width: 100%;
+	height: 50px;
+	font-family: myfont3;
+	font-size: 15px;
+}
+
+.hr10{
+	border: none;
+	height: 12px;
+	width: 100%;
+}
+
+.hr5{
+	border: none;
+	height: 2px;
+	width: 100%;
+}
+
+.code {
+	position: relative;
+	height: 50px;
+}
+
+.code-cotain {
+	position: absolute;
+	width: 40%;
+	left: 0px;
+	height: 100%;
+}
+
+.code-cotain img {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	cursor: pointer;
+}
+
+.code-input {
+	position: absolute;
+	width: 60%;
+	left: 40%;
+	height: 100%;
+}
+
+.code-input-info {
+	font-family: myfont3;
+	font-size: 16px;
+}
+
+.input-btn{
+	border: none;
+	border-radius: 5px;
+	font-family: myfont3;
+	background-color: rgba(26, 144, 222, 1);
+	height: 50px;
+	font-size: 17px;
+}
+
+.load-panel-footer {
+	position: absolute;
+	width: 50%;
+	height: 10%;
+	right: 0px;
+	bottom: 0px;
+	text-align: center;
+}
+
+.register-panel-footer {
+	position: absolute;
+	width: 60%;
+	height: 10%;
+	right: 0px;
+	bottom: 0px;
+	text-align: center;
+}
+
+.load-panel-footer p ,.register-panel-footer p {
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+	font-family: myfont3;
+	font-size: 15px;
+}
+
+.load-panel-footer p a ,.register-panel-footer p a{
+	text-decoration: none;
+}
+
+.sys-dialog {
+	position: fixed;
+	top:30%;
+	transform: translateY(-50%);
+	width: 300px;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+@media (min-width: 768px) {
+	.sys-contain {
+		width: 300px;
+	}
+}
+
+.modal-content {
+	background-color: rgba(50, 100, 140, 0.9);
+	border: none;
+}
+
+.sys-contain-header {
+	border: none;
+}
+
+.sys-contain-header div{
+	text-align: center;
+}
+
+.sys-contain-header div p {
+	font-family: myfont2;
+	font-size: 16px;
+	color: white;
+}
+
+.sys-contain-header {
+	height: 50px;
+}
+
+.submit-modal-body {
+	height: 50px;
+	text-align: center;
+}
+
+.submit-modal-body p {
+	color: white;
+	font-size: 13px;
+	font-family: myfont3;
+}
+
+.chat-panel {
+	position: absolute;
+	width: 1000px;
+	height: 620px;
+	left: 50%;
+	top: 50%;
+	transform: translateY(-50%) translateX(-50%);
+	border: none;
+	border-radius: 0px;
+	background-color: white;
+	animation: fade-in 2.5s linear 2.5s;
+	-webkit-animation:fade-in 2.5s;
+	box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+}
+
+.left-contain {
+	position: absolute;
+	width: 20%;
+	height: 100%;
+}
+
+.left-head {
+	position: absolute;
+	width: 100%;
+	height: 10%;
+	top: 0%;
+	background-color: rgb(15,18,22);
+}
+
+.left-bar {
+	position: absolute;
+	width: 100%;
+	height: 90%;
+	top: 10%;
+	bottom: 0;
+	background-color: rgb(20,23,27);
+}
+
+.left-bar-body {
+	position: absolute;
+	filter: blur(20px); 
+	background-color: black;
+	background:url(../imgs/miku.jpg);
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.middle-contain {
+	position: absolute;
+	width: 53%;
+	height: 90%;
+	left: 20%;
+	bottom: 0;
+	border-top: 1px solid rgba(205, 205, 205, 0.6);
+	border-right: 0.5px solid rgba(205, 205, 205, 0.6);
+}
+
+.chat-contain-panel {
+	display: none;
+}
+
+.right-contain {
+	position: absolute;
+	width: 27%;
+	height: 90%;
+	right: 0;
+	bottom: 0;
+	border-top: 1px solid rgba(205, 205, 205, 0.6);
+	border-left: 0.5px solid rgba(205, 205, 205, 0.6);
+	background-color: rgba(235, 235, 235, 0.9);
+}
+
+.top-contain {
+	position: absolute;
+	width: 80%;
+	left: 20%;
+	top: 0;
+	height: 10%;
+	background-color: rgba(240, 240, 240, 0.8);
+}
+
+.input-search {
+	position: absolute;
+	left: 20px;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 35%;
+}
+
+.input-search span {
+	background-color: white;
+	border-right: none;
+}
+
+.input-search input {
+	background-color: white;
+	border-left: none;
+	font-size: 13px;
+	outline: none;
+}
+
+.form-control:focus {
+	border-color: #ccc;
+	box-shadow: none;
+	outline: none;
+}
+
+.input-search span, .input-search input{
+	height: 30px;
+}
+
+.user-head {
+	position: absolute;
+	right: 20px;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 27%;
+	height: 100%;
+}
+
+.user-img {
+	position: absolute;
+	left: 0px;
+	height: 40px;
+	width: 40px;
+	top: 50%;
+	transform: translateY(-50%);
+	background: url(../imgs/miku.jpg) no-repeat center;
+	background-size: 100% 100%;
+	border-radius: 100%;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+}
+
+.user-name {
+	position: absolute;
+	left: 55px;
+	top: 50%;
+	transform: translateY(-50%);
+	height: 45px;
+	line-height: 45px;
+	width: calc(100% - 55px);
+	text-align: left;
+}
+
+.user-name p {
+	color: #111;
+	font-family: myfont3;
+	font-size: 13px;
+}
+
+.navigation {
+	position: absolute;
+	height: 30%;
+	width: 100%;
+	top: 5%;
+}
+
+
+.navigation-title, .online-title{
+	position: absolute;
+	height: 40px;
+	top: 0;
+	width: 100%;
+	line-height: 40px;
+}
+
+.navigation-title p ,.online-title p{
+	color: rgb(150, 150, 150);
+	padding-left: 30px;
+	font-family: myfont3;
+	font-size: 11px;
+}
+
+.navigation-chat {
+	position: absolute;
+	height: calc((100% - 40px) / 3);
+	top: 40px;
+	width: 100%;
+	line-height: 40px;
+	transition: background-color 1.5s;
+}
+
+.navigation-chat p ,.navigation-self p, .navigation-comment p{
+	color: rgb(200, 200, 200);
+	padding-left: 30px;
+	font-family: myfont3;
+	font-size: 14px;
+	cursor: pointer;
+}
+
+.navigation-self {
+	position: absolute;
+	height: calc((100% - 40px) / 3);
+	top: calc(40px + (100% - 40px) / 3);
+	width: 100%;
+	line-height: 40px;
+	transition: background-color 1.5s;
+}
+
+.navigation-comment {
+	position: absolute;
+	height: calc((100% - 40px) / 3);
+	top: calc(40px + 2 * (100% - 40px) / 3);
+	width: 100%;
+	line-height: 40px;
+	transition: background-color 1.5s;
+}
+
+.people-online {
+	position: absolute;
+	top: 35%;
+	height: 55%;
+	width: 100%;
+}
+
+.online-container {
+	position: absolute;
+	top: 40px;
+	width: 100%;
+	height: calc(100% - 40px);
+	overflow: auto;
+}
+
+.online-item {
+	position: relative;
+	width: 100%;
+	height: 43px;
+	cursor: pointer;
+	animation: fade-in 2s linear 2s;
+	-webkit-animation:fade-in 2s;
+	transition: background-color 1.5s;
+}
+
+.online-item-head {
+	position: absolute;
+	height: 32px;
+	width: 32px;
+	left: 15px;
+	top: 50%;
+	transform: translateY(-50%);
+	background: url(../imgs/miku.jpg) no-repeat center;
+	background-size: 100% 100%;
+	border-radius: 100%;
+	box-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+}
+
+.online-item-name {
+	position: absolute;
+	height: 100%;
+	left: 55px;
+	width: calc(100% - 55px);
+	line-height: 43px;
+	text-align: center;
+}
+
+.online-item-name p {
+	color: white;
+	font-family: myfont3;
+	font-size: 12px;
+}
+
+.left-end {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 10%;
+}
+
+.about {
+	position: absolute;
+	width: 50%;
+	left: 0;
+	top: 0;
+	height: 50%;
+	text-align: center;
+}
+
+.connect {
+	position: absolute;
+	width: 50%;
+	right: 0;
+	top: 0;
+	height: 50%;
+	text-align: center;
+}
+
+.copyright {
+	position: absolute;
+	width: 100%;
+	height: 40%;
+	bottom: 10%;
+	text-align: center;
+}
+
+.copyright p, .connect p, .about p {
+	position: relative;
+	font-family: myfont3;
+	font-size: 10px;
+	top: 50%;
+	transform: translateY(-50%);
+	color: black;
+	cursor: pointer;
+}
+
+.wechat-online {
+	position: absolute;
+	height: 100%;
+	width: 80%;
+	left: 0;
+}
+
+.wechat-online p span {
+	color: #67CF22;
+}
+
+.wechat-online p, .logout p {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translateY(-50%) translateX(-50%);
+	color: rgb(25, 123, 224);
+	font-family: myfont3;
+	font-size: 22px;
+}
+
+.logout p {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translateY(-50%) translateX(-50%);
+	color: rgb(150, 150, 150);
+	font-family: myfont3;
+	font-size: 10px;
+	cursor: pointer;
+}
+
+.logout p i {
+	transition: transform 0.6s;
+}
+
+.logout p i:hover {
+	transform: scale(1.2, 1.2);
+}
+
+.logout {
+	position: absolute;
+	height: 100%;
+	width: 20%;
+	right: 0;
+}
+
+.connect-head-bar {
+	z-index: -1;
+	position: absolute;
+	width: 80%;
+	height: 10%;
+	top: 0;
+	left: 0;
+	background-color: rgba(235, 235, 235, 1);
+	border-bottom: 1px solid rgba(205, 205, 205, 0.6);
+}
+
+.connect-head-bar-name {
+	position: absolute;
+	height: 100%;
+	right: 0;
+	width: 75%;
+}
+
+.connect-head-bar-name p {
+	position: absolute;
+	top: 50%;
+	right: 50%;
+	transform: translateY(-50%) translateX(50%);
+	color: rgba(20, 20, 20, 0.8);
+	font-family: myfont3;
+	font-size: 17px;
+	font-weight: bolder;
+}
+
+.connect-head-bar-profile {
+	position: absolute;
+	height: 10%;
+	right: 0;
+	width: 20%;
+	background-color: rgba(235, 235, 235, 1);
+	border-bottom: 1px solid rgba(205, 205, 205, 0.6);
+}
+
+.connect-head-bar-profile button ,.connect-msg-send button{
+	position: absolute;
+	top: 50%;
+	right: 50%;
+	transform: translateY(-50%) translateX(50%);
+	background-color: rgba(235, 235, 235, 0.9);
+	border-radius: 2px;
+	height: 30px;
+}
+
+.connect-head-bar-profile button p, .connect-msg-send button p {
+	color: rgba(20, 20, 20, 0.8);
+	font-family: myfont3;
+	font-size: 11px;
+}
+
+.connect-panel {
+	position: absolute;
+	top: 10%;
+	width: 100%;
+	height: 78%;
+	background-color: rgba(245, 245, 245, 1);
+	overflow: auto;
+}
+
+.connect-head {
+	z-index: -1;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 14%;
+	height: 12%;
+	background-color: rgba(235, 235, 235, 1); 
+	border-top: 1px solid rgba(205, 205, 205, 0.6);
+	animation: h-in 2s linear 2.5s;
+	-webkit-animation:h-in 2s;
+}
+
+.connect-head-img {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translateX(-50%) translateY(-50%);
+	width: 35px;
+	height: 35px;
+	border-radius: 100%;
+	background: url(../imgs/miku.jpg) no-repeat center;
+	background-size: 100% 100%
+}
+
+.connect-msg-panel {
+	position: absolute;
+	left: 14%;
+	height: 12%;
+	width: 68%;
+	bottom: 0;
+	background-color: rgba(235, 235, 235, 1); 
+	border-top: 1px solid rgba(205, 205, 205, 0.6);
+	animation: h-in 2s linear 2.5s;
+	-webkit-animation:h-in 2s;
+}
+
+.msg-input {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translateX(-50%) translateY(-50%);
+	width: 98%;
+}
+
+.msg-input input, .msg-input span {
+	height: 32px;
+	font-family: myfont3;
+	font-size: 12px;
+	background-color: white;
+	border-radius: 2px;
+}
+
+.msg-input input {
+	border-right: none;
+}
+
+.msg-input span {
+	border-left: none;
+	background-color: rgba(250, 250, 250, 0.9); 
+}
+
+.connect-msg-send {
+	position: absolute;
+	right: 0px;
+	height: 12%;
+	width: 18%;
+	bottom: 0;
+	background-color: rgba(235, 235, 235, 1); 
+	border-top: 1px solid rgba(205, 205, 205, 0.6);
+	animation: h-in 2s linear 2.5s;
+	-webkit-animation:h-in 2s;
+}
+
+.right-contain-search {
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 10%;
+	background-color: rgba(235, 235, 235, 0.9); 
+	border-bottom: 1px solid rgba(205, 205, 205, 0.6);
+}
+
+.msg-search {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translateX(-50%) translateY(-50%);
+	width: 85%;
+}
+
+.msg-search input, .msg-search span {
+	height: 32px;
+	font-family: myfont3;
+	font-size: 12px;
+	background-color: white;
+	border-radius: 3px;
+	border: none;
+}
+
+.right-contain-msg {
+	position: absolute;
+	top: 10%;
+	width: 100%;
+	height: 90%;
+	overflow: auto;
+}
+
+.contain-msg-item {
+	position: relative;
+	width: 100%;
+	height: 100px;
+	border-bottom: 1px solid rgba(205, 205, 205, 0.6);
+	animation: fade-in 2s linear 2s;
+	-webkit-animation:fade-in 2s;
+	cursor: pointer;
+	transition: background-color 1.5s;
+}
+
+.msg-item-head {
+	position: absolute;
+	left: 14px;
+	top: 18px;
+	width: 27px;
+	height: 27px;
+	border-radius: 100%;
+	background: url(../imgs/miku.jpg) no-repeat center;
+	background-size: 100% 100%;
+}
+
+.msg-item-name {
+	position: absolute;
+	top: 18px;
+	width: 55%;
+	height: 25px;
+	left: 49px;
+}
+
+.msg-item-time {
+	position: absolute;
+	top: 18px;
+	right: 0px;
+	height: 25px;
+	width: 27%;
+}
+
+.msg-item-name p {
+	position: absolute;
+	left: 0;
+	top: 50%;
+	transform: translateY(-50%);
+	font-family: myfont2;
+	font-size: 13px;
+}
+
+.msg-item-time p {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translateX(-50%) translateY(-50%);
+	font-family: myfont3;
+	font-size: 10px;
+	color: rgba(50, 50, 50, 0.7);
+}
+
+.msg-item-msg {
+	position: absolute;
+	top: 43px;
+	left: 49px;
+	height: 50%;
+	width: 70%;
+	overflow: auto;
+}
+
+.msg-item-msg p {
+	color: rgba(70, 70, 70, 0.7);
+	font-family: myfont3;
+	font-size: 12px;
+	word-wrap:break-word;
+	word-break:break-all;
+}
+
+.msg-item {
+	position: relative;
+	width: 100%;
+	min-height: 70px;
+	animation: fade-in 0.6s linear 0.6s;
+	-webkit-animation:fade-in 0.6s;
+}
+
+.item-time {
+	width: 100%;
+	height: 27px;
+	text-align: center;
+}
+
+.item-time p {
+	line-height: 27px;
+	font-family: myfont3;
+	font-size: 12px;
+	color: rgba(100, 100, 100, 0.7);
+}
+
+.item-head {
+	position: absolute;
+	left: 20px;
+	top: 17.5px;
+	transform: translateY(-50%);
+	width: 35px;
+	height: 35px;
+	border-radius: 100%;
+	background: url(../imgs/miku.jpg) no-repeat center;
+	background-size: 100% 100%;
+}
+
+.item-msg {
+	position: relative;
+	min-height: 35px;
+	width: 100%;
+}
+
+.item-msg-spin {
+	position: absolute;
+	left: 58px;
+	top: 17.5px;
+	transform: translateY(-50%);
+	border-width: 5px;
+	height: 0px;
+	width: 0px;
+	border-style: solid;
+	border-color: transparent white transparent transparent;
+}
+
+.item-msg-contain {
+	margin-left: 68px;
+	width: calc(100% - 90px);
+	min-height: 35px;
+	background-color: white;
+	border: none;
+	border-radius: 3px;
+}
+
+.item-msg-contain p, .item-msg-contain-f p {
+	padding: 10px;
+	position: relative;
+	color: rgba(20, 20, 20, 0.7);
+	font-family: myfont3;
+	font-size: 12px;
+	word-break:break-all;
+	line-height: 18px;
+}
+
+.item-head-f {
+	position: absolute;
+	right: 20px;
+	top: 17.5px;
+	transform: translateY(-50%);
+	width: 35px;
+	height: 35px;
+	border-radius: 100%;
+	background: url(../imgs/miku.jpg) no-repeat center;
+	background-size: 100% 100%;
+}
+
+.item-msg-spin-f {
+	position: absolute;
+	right: 58px;
+	top: 17.5px;
+	transform: translateY(-50%);
+	border-width: 5px;
+	height: 0px;
+	width: 0px;
+	border-style: solid;
+	border-color: transparent transparent transparent rgba(221, 233, 238, 0.9);
+}
+
+.item-msg-contain-f {
+	margin-left: 23px;
+	width: calc(100% - 90px);
+	min-height: 35px;
+	background-color: rgba(221, 233, 238, 0.9);
+	border: none;
+	border-radius: 3px;
+}
+
+.profile-back {
+	z-index: -2;
+	top: 0px;
+	position: absolute;
+	width: 100%;
+	height: 37%;
+	background: url(../imgs/miku.jpg) no-repeat center;
+	background-size: cover;
+	border: none;
+	filter: brightness(0.7);
+}
+
+.profile-back-triangle {
+	position: absolute;
+	box-sizing: border-box;
+	z-index: -1;
+	top: 0%;
+	right: 0;
+	width: 0px;
+	height: 0px;
+	border-style: solid;
+	border-width: 150px 0px 56px 530px;
+	border-color: transparent transparent rgba(230, 230, 230, 1) transparent;
+}
+
+.profile-contain-panel {
+	display: block;
+}
+
+.my-head {
+	z-index: 3;
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 100px;
+	height: 100px;
+	top: 22%;
+	background: url(../imgs/miku.jpg) no-repeat center;
+	background-size: 100% 100%;
+	border-radius: 100%;
+	box-shadow: 0 0 18px rgba(10, 10, 10, 0.9);
+}
+
+.profile-name {
+	position: absolute;
+	width: 100%;
+	height: 50px;
+	top: 8%;
+	/*background-color: yellow;*/
+	text-align: center;
+}
+
+.profile-name p:nth-child(1) {
+	line-height: 20px;
+	font-family: myfont3;
+	font-size: 20px;
+	color: white;
+	font-weight: bolder;
+}
+
+.profile-name p:nth-child(2) {
+	line-height: 20px;
+	font-family: myfont2;
+	font-size: 16px;
+	color: white;
+}
+
+.base-info {
+	position: absolute;
+	top: 37%;
+	width: 100%;
+	height: 17%;
+	background-color: rgba(230, 230, 230, 1);
+	border-bottom: 1px solid rgba(200, 200, 200, 0.6);
+}
+
+.self-sex {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	height: 70px;
+	width: 70px;
+	left: 15%;
+}
+
+.self-xinzuo {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%) translateX(-50%);
+	height: 70px;
+	width: 70px;
+	left: 50%;
+}
+
+.self-age {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	height: 70px;
+	width: 70px;
+	right: 15%;
+}
+
+.self-info {
+	position: absolute;
+	bottom: 8%;
+	width: 100%;
+	height: 38%;
+	background-color: rgba(235, 235, 235, 1);
+	overflow: auto;
+	border-bottom: 1px solid rgba(170, 170, 170, 0.6);
+}
+
+.self-submit {
+	position: absolute;
+	bottom: 0px;
+	width: 100%;
+	height: 8%;
+	background-color: rgba(230, 230, 230, 1);
+	overflow: auto;
+}
+
+.other-end {
+	position: absolute;
+	bottom: 0px;
+	width: 100%;
+	height: 8%;
+	background: url(../imgs/miku.jpg) no-repeat center;
+	background-size: cover;
+	overflow: auto;
+}
+
+.sex-logo, .xinzuo-logo, .age-logo {
+	position: absolute;
+	width: 40px;
+	height: 40px;
+	top: 5px;
+	left: 50%;
+	transform: translateX(-50%);
+	border-radius: 100%;
+	background: url(../imgs/sex.png) no-repeat center;
+	background-size: 100% 100%;
+	filter: brightness(0.8);
+}
+
+.sex-logo {
+	width: 32px;
+	height: 32px;
+}
+
+.xinzuo-logo {
+	background-image: url(../imgs/xinzuo.png);
+}
+
+.age-logo { 
+	top: -5px;
+	width: 48px;
+	height: 48px;
+	background-image: url(../imgs/birth.png);
+}
+
+.sex-select, .xinzuo-select, .age-select {
+	position: absolute;
+	bottom: 0;
+	width: 120%;
+	left: 50%;
+	transform: translateX(-50%);
+}
+ 
+.sex-select select, .xinzuo-select select, .age-select input {
+	background-color: rgba(230, 230, 230, 1);
+	height: 20px;
+	font-family: myfont3;
+	font-size: 12px;
+	text-align: center;
+}
+
+
+.self-submit button:nth-child(1) {
+	position: absolute;
+	top: 50%;
+	left: 10%;
+	transform: translateY(-50%);
+	background-color: rgba(235, 235, 235, 0.9);
+	border-radius: 2px;
+	height: 28px;
+	width: 60px;
+}
+
+.self-submit button:nth-child(2) {
+	position: absolute;
+	top: 50%;
+	right: 10%;
+	transform: translateY(-50%);
+	border-radius: 2px;
+	height: 28px;
+	width: 60px;
+}
+
+.self-submit button p {
+	color: rgba(20, 20, 20, 0.8);
+	font-family: myfont3;
+	font-size: 11px;
+}
+
+.middle-back {
+	z-index: -6;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(235, 235, 235, 0.9);
+}
+
+.spinner-load {
+  top: 43%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  position: absolute;
+  width: 260px;
+  text-align: center;
+}
+ 
+.spinner-load > div {
+  width: 32px;
+  height: 32px;
+  background: url(../imgs/miku.jpg) no-repeat center;
+  background-size: 100% 100%;
+  box-shadow: 0 0 13px rgba(0, 0, 0, 0.7);
+  margin-left: 15px;
+  margin-right: 15px;
+  border-radius: 100%;
+  display: inline-block;
+  -webkit-animation: bouncedelay 1.4s infinite ease-in-out;
+  animation: bouncedelay 1.4s infinite ease-in-out;
+  /* Prevent first frame from flickering when animation starts */
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+ 
+.spinner-load .bounce1 {
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+}
+ 
+.spinner-load .bounce2 {
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+}
+ 
+@-webkit-keyframes bouncedelay {
+  0%, 80%, 100% { -webkit-transform: scale(0.0) }
+  40% { -webkit-transform: scale(1.0) }
+}
+ 
+@keyframes bouncedelay {
+  0%, 80%, 100% {
+    transform: scale(0.0);
+    -webkit-transform: scale(0.0);
+  } 40% {
+    transform: scale(1.0);
+    -webkit-transform: scale(1.0);
+  }
+}
+
+.self-info-title {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 30%;
+	height: 40px;
+	line-height: 40px;
+}
+
+.self-info-title p {
+	margin-left: 20px;
+	font-family: myfont3;
+	font-size: 15px;
+	font-weight: bolder;
+}
+
+.self-info-contain {
+	position: absolute;
+	top: 40px;
+	left: 0;
+	width: 100%;
+	height: 75%;
+}
+
+.self-info-contain span, .self-info-contain input {
+	border: none;
+	background-color: rgba(240, 240, 240, 1);
+	height: 30px;
+	font-family: myfont3;
+	font-size: 13px;
+}
+
+.self-info-contain span i {
+	color: rgba(22, 97, 213, 1);
+	font-size: 17px;
+}
+
+.self-mobile {
+	position: absolute;
+	top: 7.5%;
+	width: calc(50% - 20px);
+	left: 20px;
+}
+
+.self-address {
+	position: absolute;
+	top: 32.5%;
+	width: calc(90% - 20px);
+	left: 20px;
+}
+
+.self-school {
+	position: absolute;
+	top: 57.5%;
+	width: calc(50% - 20px);
+	left: 20px;
+}
+
+.self-nickname {
+	position: absolute;
+	top: 82.5%;
+	width: calc(50% - 20px);
+	left: 20px;
+}
+
+.sex-select p, .xinzuo-select p, .age-select p{
+	font-family: myfont3;
+	font-size: 13px;
+	line-height: 13px;
+	text-align: center;
+}
+
+.self-info-contain div {
+	position: absolute;
+	width: 50%;
+	height: 25%;
+	left: 20px;
+}
+
+.self-info-contain div:nth-child(1) {
+	top: 0;
+}
+
+.self-info-contain div:nth-child(2) {
+	top: 25%;
+}
+
+.self-info-contain div:nth-child(3) {
+	top: 50%;
+}
+
+.self-info-contain div:nth-child(4) {
+	top: 75%;
+}
+
+.self-info-contain p {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	font-family: myfont3;
+	font-size: 15px;
+}
+
+.self-info-contain span {
+	color: rgba(22, 97, 213, 1);
+}
+
+.other-end button {
+	position: absolute;
+	top: 50%;
+	right: 10%;
+	transform: translateY(-50%);
+	height: 30px;
+	width: 60px;
+	font-family: myfont3;
+	font-size: 12px;
+	border-radius: 2px;
+	background-color: rgba(230, 230, 230, 1);
+	color: black;
+}
+
+.other-contain-panel {
+	display: none;
+}
+
+.wait-select {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%) translateY(-50%);
+	height: 260px;
+	width: 260px;
+	top: 40%;
+	background: url(../imgs/wait.png) no-repeat center;
+	background-size: 100% 100%;
+}
+
+.select-chater {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%) translateY(-50%);
+	top: 75%;
+	height: 40px;
+	width: 260px;
+	line-height: 40px;
+	text-align: center;
+}
+
+.select-chater p {
+	font-family: myfont3;
+	font-size: 15px;
+}
+
+.select-arrow {
+	position: absolute;
+	top: 50%;
+	left: 5px;
+	transform: translateY(-50%);
+}
+
+.comment-contain-panel {
+	display: none;
+}
+
+.comment-head {
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 10%;
+	background: url(../imgs/miku.jpg) no-repeat center;
+	background-size: cover;
+	border-bottom: 1px solid rgba(205, 205, 205, 0.6);
+}
+
+.comment-head p {
+	position: absolute;
+	top: 50%;
+	left: 20px;
+	transform: translateY(-50%);
+	font-family: myfont3;
+	font-size: 17px;
+	color: white;
+}
+
+.comment-body {
+	position: absolute;
+	top: 10%;
+	width: 100%;
+	height: 78%;
+	background-color: rgb(230, 230, 230);
+	border-bottom: 1px solid rgba(205, 205, 205, 0.6);
+	overflow: auto;
+}
+
+.comment-item {
+	position: relative;
+	width: 85%;
+	left: 50%;
+	transform: translateX(-50%);
+	margin-top: 25px;
+	margin-bottom: 25px;
+	background-color: rgba(235, 235, 235, 1);
+	box-shadow: 0 0px 4px rgb(220, 220, 220, 0.2);
+}
+
+.comment-item-head {
+	position: relative;
+	width: 100%;
+	height: 70px;
+}
+
+.comment-contain {
+	position: relative;
+	width: 90%;
+	min-height: 15px;
+	left: 50%;
+	top: 0px;
+	transform: translateX(-50%);
+}
+
+.comment-contain p {
+	font-family: myfont3;
+	font-size: 13px;
+	word-wrap:break-word;
+	word-break:break-all;
+	color: rgba(50, 50, 50, 0.7);
+}
+
+.comment-end {
+	position: relative;
+	width: 100%;
+	top: 2px;
+	height: 45px;
+	border-top: 1px solid rgba(205, 205, 205, 0.6);
+}
+
+.like {
+	position: absolute;
+	width: 45%;
+	height: 100%;
+	left: 0;
+}
+
+.time {
+	position: absolute;
+	width: 45%;
+	height: 100%;
+	right: 0;
+}
+
+.comment-item-head-img {
+	position: absolute;
+	width: 50px;
+	height: 50px;
+	top: 50%;
+	transform: translateY(-50%);
+	left: 20px;
+	border-radius: 100%;
+	background: url(../imgs/miku.jpg) no-repeat center;
+	background-size: 100% 100%;
+}
+
+.comment-item-head-name {
+	position: absolute;
+	left: 90px;
+	top: 0;
+	height: 100%;
+	width: calc(100% - 90px);
+}
+
+.comment-name {
+	position: absolute;
+	width: 100%;
+	height: 30%;
+	top: 20%;
+}
+
+.comment-from {
+	position: absolute;
+	width: 100%;
+	height: 30%;
+	bottom: 20%;
+}
+
+.comment-name p, .comment-from p {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	left: 5px;
+	font-family: myfont3;
+}
+
+.like p, .time p {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%) translateX(-50%);
+	left: 50%;
+	font-family: myfont3;
+	font-size: 13px;
+	color: rgba(50, 50, 50, 0.7);
+}
+
+.like p i {
+	cursor: pointer;
+	transition: transform 0.5s;
+}
+
+.like p i: hover {
+	transform: scale(1.3, 1.3);
+}
+
+.comment-name p {
+	font-size: 15px;
+}
+
+.comment-from p {
+	font-size: 13px;
+	color: rgb(29, 103, 215);
+}
+

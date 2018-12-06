@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<div id="pdf1">
+		hello world~
+	</div> 
+</body>
+<script src="https://cdn.bootcss.com/jquery/1.7.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/html2canvas/0.5.0-beta4/html2canvas.js"></script>
+<script src="https://cdn.bootcss.com/jspdf/1.4.0/jspdf.debug.js"></script>
+<script type="text/javascript">
+	/*设置新元素样式*/
+$("#pdf1").css({
+    "background-color": "#fff",
+    "position": "absolute",
+    "top": "0px",
+    "z-index": "-1",
+    "height": $("#pdf").height()
+});
+/*html2canvas生成图片，jspdf生成PDF文件*/
+html2canvas($("#pdf1"), {
+    background: "#fff",
+    allowTaint: true,
+    taintTest: false,
+    onrendered:function(canvas) {
+        var contentWidth = canvas.width;
+        var contentHeight = canvas.height;
+        var pageHeight = contentWidth / 1500 * 1000;
+        var leftHeight = contentHeight;
+        var position = 0;
+        var imgWidth = 1500;
+        var imgHeight = 1000/contentWidth * contentHeight;
+        var pageData = canvas.toDataURL('image/jpeg', 1.0);
+        var img = new Image();
+        img.src = pageData;
+        var pdf = new jsPDF('p', 'pt', 'a4');
+        img.onload = function() {
+            if (leftHeight < pageHeight) {
+                pdf.addImage(pageData, 'JPEG', 0, 0, imgWidth, imgHeight );
+            } else {
+                while(leftHeight > 0) {
+                    pdf.addImage(pageData, 'JPEG', 0, position, imgWidth, imgHeight)
+                    leftHeight -= pageHeight;
+                    position -= 841.89;
+                    if(leftHeight > 0) {
+                        pdf.addPage();
+                    }
+                }
+            }
+            pdf.save('report_pdf_' + new Date().getTime() + '.pdf');
+            $("#pdf1").remove();
+        }
+    },
+})
+</script>
+</html>

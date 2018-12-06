@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title><%= title %></title>
+</head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="../css/main_style.css">
+<link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet">
+<body>
+<div class="container">
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<nav class="navbar navbar-fixed-top" role="navigation" id="my-navbar">
+
+				<div class="navbar-header">
+					 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-small">
+					 	<div class="expand-button"></div>
+					 </button>
+					 <a class="navbar-brand"><i class="fa fa-fw fa-database"></i>Manage</a>
+				</div>
+
+				<div class="collapse navbar-collapse" id="navbar-collapse-small">
+					<ul class="nav navbar-nav navbar-left">
+						<li class="active">
+							 <a href="../manage"><i class="fa fa-fw fa-file"></i>Papers</a>
+						</li>
+						<li>
+							 <a href="../newpaper"><i class="fa fa-fw fa-pencil-square"></i>New</a>
+						</li>
+					</ul>
+
+					<ul class="nav navbar-nav navbar-right" style="margin-right: 30px;">
+						<li>
+							<a href="../"><i class="fa fa-fw fa-mail-reply"></i>back</a>
+						</li>
+						<li>
+							<a onclick="logout()"><i class="fa fa-fw fa-user-times"></i>Logout</a>
+						</li>
+					</ul>
+				</div>			
+			</nav>
+		</div>
+	</div>
+
+	<div class="col-md-12 column">
+		<div class="panel panel-default manage-panel">
+			<span class="img-circle manage-head-img"><span class="manage-author"><p>Darknight's blog</p></span></span>
+			<span class="manage-description"><p><%= man_name %></p></span>
+			<div class="panel-body my-panel-body"></div>
+		</div>
+	</div>
+
+	<div class="col-md-12 column manage-contain">
+		<div class="row panel panel-default manage-contain-panel">
+
+			<div class="col-md-3 col-xs-3 col-sm-3 my-data-list">
+				<div class="my-visit-num">
+					<div class="col-md-4 col-xs-4 col-sm-4 tag">
+						<i class="fa fa-2x fa-commenting"></i>
+					</div>
+					<div class="col-md-8 col-xs-8 col-sm-8 visit-num">
+						<p><%= visit_num %></p>
+						<p>Visited Num</p>
+					</div>
+				</div>
+
+				<div class="my-paper-num">
+					<div class="col-md-4 col-xs-4 col-sm-4 tag">
+						<i class="fa fa-2x fa-file"></i>
+					</div>
+					<div class="col-md-8 col-xs-8 col-sm-8 visit-num">
+						<p><%= papers_num %></p>
+						<p>Papers Num</p>
+					</div>
+				</div>
+
+				<div class="panel-body my-panel-body"></div>
+			</div>
+
+			<div class="col-md-9 col-xs-9 col-sm-9 my-papers-list">
+				<!-- 列出所有文章 -->
+				<div class="panel panel-info papers-panel">
+					<div class="panel-heading">
+				        <p class="panel-title my-panel-head">
+				        	My Papers
+				        </p>
+				    </div>
+				    <div class="panel-body papers-panel-body">
+				        <table class="table table-hover">
+							<thead>
+								<tr>
+									<th>
+										<p>Name</p>
+									</th>
+									<th>
+										<p>Date</p>
+									</th>
+									<th>
+										<p>Type</p>
+									</th>
+									<th>
+										<p><i class="fa fa-fw fa-heart"></i></p>
+									</th>
+									<th>
+										<p>Operation</p>
+									</th>
+								</tr>
+							</thead>
+							<tbody>
+							<% if(papers.length) {%>
+							<% for (let item of papers) {%>
+								<tr class="<%= item['p_style'] %>">
+									<td>
+										<p><%= item['p_name'] %></p>
+									</td>
+									<td>
+										<p><%= item['p_date'] %></p>
+									</td>
+									<td>
+										<p><%= item['p_type'] %></p>
+									</td>
+									<td>
+										<p><%= item['p_likenum'] %></p>
+									</td>
+									<td class="control">
+										<p>
+											<button class="btn btn-info modify-btn"><i class="fa fa-fw fa-text-width"></i></button>
+											<button class="btn btn-info delete-btn" onclick="delete_paper(this)"><i class="fa fa-fw fa-trash-o"></i></button>
+										</p>
+									</td>
+								</tr>
+							<% } %>
+							<% } %>
+							</tbody>
+						</table>
+				    </div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<div class="col-md-12 column manage-bottom">
+		<div class="panel panel-default manage-panel-btm">
+			<div class="btm-connect">
+				<a href="#"><i class="fa fa-fw fa-github-alt"></i></a>
+				<a href="mailto:49656500@qq.com"><i class="fa fa-fw fa-envelope"></i></a>
+				<a href="#">
+					<i class="fa fa-fw fa-qq"></i>
+				</a>
+			</div>
+			<div class="blog-name"><p>Darknight's blog</p></div>
+			<div class="copyright"><p><i class="fa fa-fw fa-copyright"></i>Designed by Darknight</p></div>
+			<div class="panel-body my-panel-body"></div>
+		</div>
+	</div>
+
+</div>
+
+
+<script src="https://cdn.bootcss.com/jquery/1.7.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../js/echo.min.js"></script>
+<script type="text/javascript" src="../js/main_page.js"></script>
+<script src="../js/jquery.rotate.js"></script>
+</body>
+</html>

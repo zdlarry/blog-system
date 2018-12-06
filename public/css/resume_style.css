@@ -1,0 +1,103 @@
+@font-face {
+    font-family:'myfont';
+    src: url('../font/Oswald-Regular.ttf');
+}
+
+@font-face{
+	font-family: 'myfont2';
+	src: url('../font/proximanova.ttf');
+}
+
+.leftside {
+	padding: 0px;
+	background-color: rgba(58, 83, 112, 1);
+	height: 1320px;
+}
+
+.rightside {
+	padding: 0px;
+	background-color: white;
+	height: 1320px;
+}
+
+.head-img {
+	position: relative;
+	width: 100%;
+	height: 260px;
+	background-color: yellow;
+}
+
+.basic-info{
+	position: relative;
+	width: 100%;
+	height: 260px;
+	padding: 30px;
+}
+
+.skills-info{
+	position: relative;
+	width: 100%;
+	height: 370px;
+	padding: 20px;
+}
+
+.hobbys-info{
+	position: relative;
+	width: 100%;
+	height: calc(100% - 890px);
+	padding: 30px;
+}
+
+.basic-info div {
+	position: relative;
+	width: 100%;
+	height: 35px;
+	text-align: left;
+	padding-left: 20px;
+	margin-top: 4px;
+	margin-bottom: 4px;
+}
+
+.basic-info span {
+	margin-left: 15px;
+}
+
+.basic-info p {
+	font-size: 22px;
+	font-family: '微软雅黑';
+	font-weight: lighter;
+	color: white;
+	line-height: 35px;
+}
+
+.skills-info .skills-title {
+	position: relative;
+	width: 100%;
+	height: 50px;
+}
+
+.skills-title p {
+	font-family: myfont2;
+	font-size: 27px;
+	line-height: 50px;
+	color: white;
+	font-weight: lighter;
+}
+
+.skills-title span {
+	margin-left: 15px;
+}
+
+.skills-info .skills-contain {
+	position: relative;
+	width: 100%;
+	height: calc(100% - 50px);
+}
+
+.skills-contain p {
+	font-family: myfont2;
+	font-size: 18px;
+	line-height: 30px;
+	color: white;
+	font-weight: lighter;
+}

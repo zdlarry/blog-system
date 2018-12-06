@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title><%= title %></title>
+</head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="../../../css/main_style.css">
+<link href="../../../font-awesome/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="../../../mdeditor/css/editormd.logo.min.css">
+<link rel="stylesheet" type="text/css" href="../../../mdeditor/css/editormd.min.css">
+<link rel="stylesheet" href="../../../mdeditor/css/editormd.preview.min.css">
+<body>
+<div class="container">
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<nav class="navbar navbar-fixed-top" role="navigation" id="my-navbar">
+
+				<div class="navbar-header">
+					 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-small">
+					 	<div class="expand-button"></div>
+					 </button>
+					 <a class="navbar-brand" href="/"><i class="fa fa-fw fa-home"></i>Home</a>
+				</div>
+
+				<div class="collapse navbar-collapse" id="navbar-collapse-small">
+					<ul class="nav navbar-nav navbar-left">
+						<li>
+							 <a href="../../../achieves"><i class="fa fa-fw fa-google-wallet"></i>Achieves</a>
+						</li>
+						<li>
+							 <a href="../../../tags"><i class="fa fa-fw fa-tags"></i>Tags</a>
+						</li>
+						<li>
+							 <a href="../../../about"><i class="fa fa-fw fa-smile-o"></i>About</a>
+						</li>
+					</ul>
+
+					<form class="navbar-form navbar-left" role="search" action="/search">
+						<div class="form-group">
+							<input type="text" class="form-control search-form" name="contain" />
+						</div> <button type="submit" class="btn btn-info">Search</button>
+					</form>
+
+					<ul class="nav navbar-nav navbar-right" style="margin-right: 30px;">
+						<li>
+							<a onclick="checklogin()"><i class="fa fa-fw fa-user-circle"></i><%= manager %></a>
+						</li>
+					</ul>
+				</div>			
+			</nav>
+		</div>
+	</div>
+
+	<div class="col-md-12 column my-head">
+		<div class="panel panel-default my-panel">
+			<div class="img-circle my-head-img"></div>
+			<div class="author"><p>Darknight</p></div>
+			<div class="description"><p>がんばってください</p></div>
+			<div class="panel-body my-panel-body"></div>
+		</div>
+	</div>
+
+	<!-- paper -->
+	<div class="col-md-12 column my-contain">
+		<div class="panel panel-default paper-panel">
+
+			<div class="paper-title">
+				<p><%= title %></p>
+			</div>
+
+			<div class="paper-datetime">
+				<span><%= datetime %></span>
+				<span> </span>
+				<span><i class="fa fa-fw fa-tag"></i><%= type %></span>
+			</div>
+
+		</div>
+		<!-- 文章主体内容 -->
+		<div class="panel panel-default contain-panel">
+			<div class="panel-body" id="editormd-view">
+				<textarea name="test-editormd-markdown-doc" style="display: none"><%= pcontain %></textarea>
+			</div>
+		</div>
+
+		<div class="panel panel-default like-panel">
+			<div class="paper-footer">
+				<p>
+					<span><i class="fa fa-fw fa-mail-reply" onclick="turn_back()"></i></span>
+					<span><i class="fa fa-fw fa-heart-o" onclick="thumbs_up()"></i><i> <i id="num"><%= likenum %></i>
+					<span><i class="fa fa-fw fa-level-up" onclick="back_top()"></i>EOF</span>
+				</p>
+			</div>
+			<div class="panel-body my-panel-body"></div>
+		</div>
+
+	</div>
+
+	<div class="col-md-12 column my-bottom">
+		<div class="panel panel-default my-panel-btm">
+			<div class="btm-connect">
+				<a href="#"><i class="fa fa-fw fa-github-alt"></i></a>
+				<a href="mailto:49656500@qq.com"><i class="fa fa-fw fa-envelope"></i></a>
+				<a href="#">
+					<i class="fa fa-fw fa-qq"></i>
+				</a>
+			</div>
+			<div class="blog-name"><p>Darknight's blog</p></div>
+			<div class="visit-num-count"><p>Welcome ~ No.<%= visit_num %> visitor</p></div>
+			<div class="copyright"><p><i class="fa fa-fw fa-copyright"></i>Copyright 2018 darknight. All Rights Reserved.</p></div>
+			<div class="panel-body my-panel-body"></div>
+		</div>
+	</div>
+
+</div>
+
+<div class="modal fade sys-dialog" id="loadIn" tabindex="-1" aria-hidden="true" data-backdrop=”static”>
+    <div class="modal-dialog sys-contain">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close loadin-close-btn" data-dismiss="modal" aria-hidden="true"><i class="fa fa-fw fa-close"></i></button>
+                <div class="modal-title loadin-title"><p>Load In</p></div>
+            </div>
+
+            <div class="modal-body">
+            	<form onsubmit="return login(this)" role="form">
+            		<div class="form-group">
+            			<input name="username" placeholder="username" required="" type="text" class="form-control input-text">
+            		</div>
+            		<div class="form-group">
+						<input name="password" placeholder="password" required="" type="password" class="form-control input-text">
+					</div>
+					<div class="form-group">
+            			<div class="hr15">
+            		</div>
+            		<div class="form-group code">
+            			<div class="code-cotain">
+            				<img src="/code" onclick="reShowCode(this)">
+            			</div>
+            			<div class="code-input">
+            				<input type="text" name="code" placeholder="code" required="" class="form-control input-text">
+            			</div>
+            		</div>
+					<div class="form-group">
+						<input value="Load In" type="submit" class="btn btn-info form-control input-btn">
+					</div>
+					<div class="form-group">
+						<input value="Cancel" type="button" class="btn btn-info form-control input-btn" data-dismiss="modal">
+					</div>
+            	</form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.bootcss.com/jquery/2.2.3/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="../../../js/md5.js"></script>
+<script type="text/javascript" src="../js/echo.min.js"></script>
+<script type="text/javascript" src="../../../js/main_page.js"></script>
+<script src="../../../js/jquery.rotate.js"></script>
+<script src="../../../mdeditor/lib/marked.min.js"></script>
+<script src="../../../mdeditor/lib/prettify.min.js"></script>
+<script src="../../../mdeditor/lib/raphael.min.js"></script>
+<script src="../../../mdeditor/lib/underscore.min.js"></script>
+<script src="../../../mdeditor/lib/sequence-diagram.min.js"></script>
+<script src="../../../mdeditor/lib/flowchart.min.js"></script>
+<script src="../../../mdeditor/lib/jquery.flowchart.min.js"></script>
+<script src="../../../mdeditor/editormd.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="../../../js/render_paper.js"></script>
+</body>
+</html>

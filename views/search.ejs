@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title><%= title %></title>
+</head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="../css/main_style.css">
+<link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet">
+<body>
+<div class="container">
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<nav class="navbar navbar-fixed-top" role="navigation" id="my-navbar">
+
+				<div class="navbar-header">
+					 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-small">
+					 	<div class="expand-button"></div>
+					 </button>
+					 <a class="navbar-brand" href="/"><i class="fa fa-fw fa-home"></i>Home</a>
+				</div>
+
+				<div class="collapse navbar-collapse" id="navbar-collapse-small">
+					<ul class="nav navbar-nav navbar-left">
+						<li>
+							 <a href="../../achieves"><i class="fa fa-fw fa-google-wallet"></i>Achieves</a>
+						</li>
+						<li>
+							 <a href="../../tags"><i class="fa fa-fw fa-tags"></i>Tags</a>
+						</li>
+						<li>
+							 <a href="../../about"><i class="fa fa-fw fa-smile-o"></i>About</a>
+						</li>
+					</ul>
+
+					<form class="navbar-form navbar-left" role="search" action="/search">
+						<div class="form-group">
+							<input type="text" class="form-control search-form" name="contain" />
+						</div> <button type="submit" class="btn btn-info">Search</button>
+					</form>
+
+					<ul class="nav navbar-nav navbar-right" style="margin-right: 30px;">
+						<li>
+							<a onclick="checklogin()"><i class="fa fa-fw fa-user-circle"></i><%= manager %></a>
+						</li>
+					</ul>
+				</div>			
+			</nav>
+		</div>
+	</div>
+
+	<div class="col-md-12 column my-head">
+		<div class="panel panel-default my-panel">
+			<div class="img-circle my-head-img"></div>
+			<div class="author"><p>Darknight</p></div>
+			<div class="description"><p>がんばってください</p></div>
+			<div class="panel-body my-panel-body"></div>
+		</div>
+	</div>
+
+	<div class="col-md-12 column my-contain">
+		<div class="panel panel-default achieve-panel">
+
+			<div class="search-title">
+				<p><i class="fa fa-fw fa-search"></i>Seach Result: <%= search_contain %></p>
+			</div>
+
+			<% if (datas.length) {%>
+			<div class="achieve-contain">
+			<% for (let item of datas) {%>
+
+				<div class="item">
+					<div class="col-md-4 col-xs-4 col-sm-4 item-date">
+						<p><i class="fa fa-fw fa-send"></i><span> </span><%= item['p_date'] %></p>
+					</div>
+					<div class="col-md-8 col-xs-8 col-sm-8 item-title">
+						<p><a href="<%= item['p_url'] %>"><%= item['p_name'] %></a></p>
+					</div>
+				</div>
+
+			<% } %>
+			</div>
+			<% } else {%>
+				<div class="search-empty">
+					<div class="search-empty-img"></div>
+				</div>
+			<% } %>
+
+		</div>
+	</div>
+
+	<div class="col-md-12 column my-bottom">
+		<div class="panel panel-default my-panel-btm">
+			<div class="btm-connect">
+				<a href="#"><i class="fa fa-fw fa-github-alt"></i></a>
+				<a href="mailto:49656500@qq.com"><i class="fa fa-fw fa-envelope"></i></a>
+				<a href="#">
+					<i class="fa fa-fw fa-qq"></i>
+				</a>
+			</div>
+			<div class="blog-name"><p>Darknight's blog</p></div>
+			<div class="visit-num-count"><p>Welcome ~ No.<%= visit_num %> visitor</p></div>
+			<div class="copyright"><p><i class="fa fa-fw fa-copyright"></i>Copyright 2018 darknight. All Rights Reserved.</p></div>
+			<div class="panel-body my-panel-body"></div>
+		</div>
+	</div>
+
+</div>
+
+<div class="modal fade sys-dialog" id="loadIn" tabindex="-1" aria-hidden="true" data-backdrop=”static”>
+    <div class="modal-dialog sys-contain">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close loadin-close-btn" data-dismiss="modal" aria-hidden="true"><i class="fa fa-fw fa-close"></i></button>
+                <div class="modal-title loadin-title"><p>Load In</p></div>
+            </div>
+
+            <div class="modal-body">
+            	<form onsubmit="return login(this)" role="form">
+            		<div class="input-group">
+            			<span class="input-group-addon input-addon"><i class="fa fa-user-secret fa-fw"></i></span>
+            			<input name="username" placeholder="username" required="" type="text" class="
+            			form-control input-text">
+            		</div>
+            		<div class="form-group">
+            			<div class="hr10">
+            		</div>
+            		<div class="input-group">
+            			<span class="input-group-addon input-addon"><i class="fa fa-key fa-fw"></i></span>
+						<input name="password" placeholder="password" required="" type="password" class="form-control input-text">
+					</div>
+					<div class="form-group">
+            			<div class="hr15">
+            		</div>
+            		<div class="form-group code">
+            			<div class="code-cotain">
+            				<img src="/code" onclick="reShowCode(this)">
+            			</div>
+            			<div class="code-input">
+            				<input type="text" name="code" placeholder="code" required="" class="form-control input-text">
+            			</div>
+            		</div>
+					<div class="form-group">
+						<input value="Load In" type="submit" class="btn btn-info form-control input-btn">
+					</div>
+					<div class="form-group">
+						<input value="Cancel" type="button" class="btn btn-info form-control input-btn" data-dismiss="modal">
+					</div>
+            	</form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.bootcss.com/jquery/1.7.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="../js/jquery.rotate.js"></script>
+<script src="../js/md5.js"></script>
+<script type="text/javascript" src="../js/echo.min.js"></script>
+<script type="text/javascript" src="../js/main_page.js"></script>
+</body>
+</html>

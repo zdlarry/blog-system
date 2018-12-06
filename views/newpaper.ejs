@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title><%= title %></title>
+</head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="../css/main_style.css">
+<link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet">
+<link href="../fileinput/css/fileinput.min.css" media="all" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="../css/editormd.min.css">
+<body>
+<div class="container">
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<nav class="navbar navbar-fixed-top" role="navigation" id="my-navbar">
+
+				<div class="navbar-header">
+					 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-small">
+					 	<div class="expand-button"></div>
+					 </button>
+					 <a class="navbar-brand"><i class="fa fa-fw fa-database"></i>Manage</a>
+				</div>
+
+				<div class="collapse navbar-collapse" id="navbar-collapse-small">
+					<ul class="nav navbar-nav navbar-left">
+						<li>
+							 <a href="../manage"><i class="fa fa-fw fa-file"></i>Papers</a>
+						</li>
+						<li class="active">
+							 <a href="../newpaper"><i class="fa fa-fw fa-pencil-square"></i>New</a>
+						</li>
+					</ul>
+
+					<ul class="nav navbar-nav navbar-right" style="margin-right: 30px;">
+						<li>
+							<a href="../"><i class="fa fa-fw fa-mail-reply"></i>back</a>
+						</li>
+						<li>
+							<a onclick="logout()"><i class="fa fa-fw fa-user-times"></i>Logout</a>
+						</li>
+					</ul>
+				</div>			
+			</nav>
+		</div>
+	</div>
+
+	<div class="col-md-12 column">
+		<div class="panel panel-default manage-panel">
+			<span class="img-circle manage-head-img"><span class="manage-author"><p>Darknight's blog</p></span></span>
+			<span class="manage-description"><p><%= man_name %></p></span>
+			<div class="panel-body my-panel-body"></div>
+		</div>
+	</div>
+
+	<div class="col-md-12 column manage-contain">
+		<div class="row panel panel-default paper-contain-panel">
+
+			<div id="my-editormd" >
+				<!-- 隐藏内容保存于此 -->
+				<textarea class="editormd-markdown-textarea" name="content" style="display: none;"></textarea>
+				<textarea class="editormd-html-textarea" name="html" style="display: none;"></textarea>
+			</div>
+
+			<div class="paper-title-type">
+
+				<div class="col-md-6 col-xs-6 col-sm-6 title-container">
+					<label class="col-md-2 col-xs-2 col-sm-2 title"><p>Title</p></label>
+				    <div class="col-md-10 col-xs-10 col-sm-10 input-title">
+				    	<input type="text" name="paper-title" class="form-control" required="">
+				    </div>
+					<div class="panel-body my-panel-body"></div>
+				</div>
+
+				<div class="col-md-6 col-xs-6 col-sm-6 type-container">
+					<label class="col-md-2 col-xs-2 col-sm-2 type"><p>Type</p></label>
+				    <div class="col-md-10 col-xs-10 col-sm-10 input-type">
+				    	<input type="text" name="paper-type" class="form-control" required="">
+				    </div>
+					<div class="panel-body my-panel-body"></div>
+				</div>
+
+			</div>
+
+			<div class="paper-img-submit">
+
+				<div class="col-md-6 col-xs-6 col-sm-6 img-container">
+					<label class="col-md-2 col-xs-2 col-sm-2 title"><p>TImg</p></label>
+				    <div class="col-md-10 col-xs-10 col-sm-10 img-title">
+				    	<input accept="image/*" type="file" name="editormd-image-file" class="file-loading" id="img-file" required="">
+				    </div>
+					<div class="panel-body my-panel-body"></div>
+				</div>
+
+				<div class="col-md-6 col-xs-6 col-sm-6 submit-container">
+					<label class="col-md-2 col-xs-2 col-sm-2 title"><p></p></label>
+				    <div class="col-md-10 col-xs-10 col-sm-10 input-submit">
+				    	<button class="form-control btn btn-info" onclick="submit_new_paper()"><p>Submit</p></button>
+				    </div>
+					<div class="panel-body my-panel-body"></div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<div class="col-md-12 column manage-bottom">
+		<div class="panel panel-default manage-panel-btm">
+			<div class="btm-connect">
+				<a href="#"><i class="fa fa-fw fa-github-alt"></i></a>
+				<a href="mailto:49656500@qq.com"><i class="fa fa-fw fa-envelope"></i></a>
+				<a href="#">
+					<i class="fa fa-fw fa-qq"></i>
+				</a>
+			</div>
+			<div class="blog-name"><p>Darknight's blog</p></div>
+			<div class="copyright"><p><i class="fa fa-fw fa-copyright"></i>Designed by Darknight</p></div>
+			<div class="panel-body my-panel-body"></div>
+		</div>
+	</div>
+
+</div>
+
+<div class="modal fade sys-dialog" id="load-submit" tabindex="-1" aria-hidden="true" data-keyboard="false" data-backdrop="static">
+    <div class="modal-dialog sys-contain">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close loadin-close-btn" data-dismiss="modal" aria-hidden="true"><i class="fa fa-fw fa-close"></i></button>
+                <div class="modal-title loadin-title"><p>Submiting</p></div>
+            </div>
+
+            <div class="modal-body submit-modal-body">
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<script src="https://cdn.bootcss.com/jquery/1.7.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="../fileinput/js/fileinput.min.js"></script>
+<script type="text/javascript" src="../js/main_page.js"></script>
+<script type="text/javascript" src="../js/echo.min.js"></script>
+<script type="text/javascript" src="../js/editormd.min.js"></script>
+<script src="../js/jquery.rotate.js"></script>
+<script type="text/javascript" src="../js/paper_editor.js"></script>
+</body>
+</html>

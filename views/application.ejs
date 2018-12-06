@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title><%= title %></title>
+</head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="../css/main_style.css">
+<link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet">
+<body>
+<div class="container">
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<nav class="navbar navbar-fixed-top" role="navigation" id="my-navbar">
+
+				<div class="navbar-header"> 
+					 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-small">
+					 	<div class="expand-button"></div>
+					 </button>
+					 <a class="navbar-brand" href="/"><i class="fa fa-fw fa-home"></i>Home</a>
+				</div>
+
+				<div class="collapse navbar-collapse" id="navbar-collapse-small">
+					<ul class="nav navbar-nav navbar-left">
+						<li>
+							 <a href="../../achieves"><i class="fa fa-fw fa-google-wallet"></i>Achieves</a>
+						</li>
+						<li>
+							 <a href="../../tags"><i class="fa fa-fw fa-tags"></i>Tags</a>
+						</li>
+						<li>
+							 <a href="../../about"><i class="fa fa-fw fa-smile-o"></i>About</a>
+						</li>
+					</ul>
+
+					<form class="navbar-form navbar-left" role="search" action="/search">
+						<div class="form-group">
+							<input type="text" class="form-control search-form" name="contain" />
+						</div> <button type="submit" class="btn btn-info">Search</button>
+					</form>
+
+					<ul class="nav navbar-nav navbar-right" style="margin-right: 30px;">
+						<li>
+							<a onclick="checklogin()"><i class="fa fa-fw fa-user-circle"></i><%= manager %></a>
+						</li>
+					</ul>
+				</div>			
+			</nav>
+		</div>
+	</div>
+
+	<div class="col-md-12 column my-head">
+		<div class="panel panel-default my-panel">
+			<div class="img-circle my-head-img"></div>
+			<div class="author"><p>Darknight</p></div>
+			<div class="description"><p>がんばってください</p></div>
+			<div class="panel-body my-panel-body"></div>
+		</div>
+	</div>
+
+	<div class="col-md-12 column my-contain">
+		<div class="panel panel-default apps-panel">
+
+			<div class="apps-panel-title">
+				<p><i class="fa fa-fw fa-universal-access"></i><span> </span>Applications</p>
+			</div>
+
+			<div class="apps-panel-contain">
+				<a class="apps-item apps-item-wechat" href="../application/chat">
+					<div class="apps-item-background apps-item-wechat-bc">
+						<svg class="icon" viewBox="0 0 1193 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M806.287212 309.998684c13.642769 0 27.127442 1.050875 40.528417 2.631837C810.407012 133.842355 629.080008 1.032275 422.076327 1.032275 190.688636 1.032275 1.112733 167.275045 1.112733 378.379926c0 121.864245 63.061771 221.92052 168.465415 299.536438l-42.100079 133.470365 147.122433-77.783315c52.692523 10.992333 94.922799 22.27296 147.475825 22.27296 13.20568 0 26.309062-0.678884 39.310147-1.757657-8.2396-29.666281-13.001085-60.727528-13.001085-92.960546 0-193.8538 157.910172-351.159486 357.901823-351.159487z m-226.356512-120.301883c31.684332 0 52.683223 21.975367 52.683222 55.370858 0 33.255994-20.998891 55.519654-52.692522 55.519654-31.544835 0-63.191968-22.27296-63.191968-55.519654 0-33.39549 31.647133-55.370858 63.191968-55.370858zM285.323142 300.596612c-31.554135 0-63.405863-22.27296-63.405863-55.528953 0-33.39549 31.851728-55.370858 63.405863-55.370858 31.544835 0 52.543726 21.975367 52.543726 55.370858 0 33.255994-20.998891 55.519654-52.543726 55.519654z" fill="#fff" /><path d="M1190.460898 655.8201c0-177.393199-168.400317-321.986094-357.557732-321.986094-200.289244 0-358.04132 144.592894-358.041319 321.986094 0 177.700092 157.752075 321.976794 358.041319 321.976794 41.923384 0 84.237358-11.159729 126.328138-22.27296l115.447401 66.651484-31.656433-110.881212c84.507051-66.80958 147.438625-155.417832 147.438626-255.474106z m-473.618918-55.519654c-20.961692 0-42.127979-21.966067-42.127978-44.387824 0-22.114864 21.166287-44.369224 42.127978-44.369224 31.823828 0 52.683223 22.25436 52.683223 44.369224 0 22.412457-20.859394 44.387824-52.683223 44.387824z m231.536487 0c-20.831495 0-41.830386-21.966067-41.830386-44.387824 0-22.114864 20.998891-44.369224 41.830386-44.369224 31.544835 0 52.683223 22.25436 52.683223 44.369224 0 22.412457-21.138388 44.387824-52.683223 44.387824z" fill="#fff" /></svg>
+					</div>
+					<div class="apps-item-name">
+						<p>WeChat</p>
+					</div>
+				</a>
+				<a class="apps-item apps-item-visualization" href="../application/visualization">
+					<div class="apps-item-background apps-item-visualization-bc">
+						<svg class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M31.29344 880.64v7.33184c0 5.69344 4.62848 10.32192 10.32192 10.32192h940.81024a10.32192 10.32192 0 0 0 10.32192-10.32192V880.64a10.32192 10.32192 0 0 0-10.32192-10.32192H41.61536a10.32192 10.32192 0 0 0-10.32192 10.32192z" fill="#4B7AB5" /><path d="M41.61536 898.2528h7.33184a10.32192 10.32192 0 0 0 10.32192-10.32192V136.06912a10.32192 10.32192 0 0 0-10.32192-10.32192h-7.33184a10.32192 10.32192 0 0 0-10.32192 10.32192v751.86176c0 5.69344 4.62848 10.32192 10.32192 10.32192z" fill="#4B7AB5" /><path d="M396.4928 625.99168m-193.7408 0a193.7408 193.7408 0 1 0 387.4816 0 193.7408 193.7408 0 1 0-387.4816 0Z" fill="#346BAA" /><path d="M691.11808 423.60832m-151.71584 0a151.71584 151.71584 0 1 0 303.43168 0 151.71584 151.71584 0 1 0-303.43168 0Z" fill="#64B064" /><path d="M426.14784 246.33344m-113.2544 0a113.2544 113.2544 0 1 0 226.5088 0 113.2544 113.2544 0 1 0-226.5088 0Z" fill="#2184B2" /><path d="M306.09408 442.61376m-69.38624 0a69.38624 69.38624 0 1 0 138.77248 0 69.38624 69.38624 0 1 0-138.77248 0Z" fill="#64B064" /><path d="M668.672 652.86144m-110.26432 0a110.26432 110.26432 0 1 0 220.52864 0 110.26432 110.26432 0 1 0-220.52864 0Z" fill="#43A3D4" /></svg>
+					</div>
+					<div class="apps-item-name">
+						<p>Visualization</p>
+					</div>
+				</a>
+			</div>
+
+			<div class="achieve-contain" style="display: none;">
+			</div>
+
+		</div>
+	</div>
+
+	<div class="col-md-12 column my-bottom">
+		<div class="panel panel-default my-panel-btm">
+			<div class="btm-connect">
+				<a href="#"><i class="fa fa-fw fa-github-alt"></i></a>
+				<a href="mailto:49656500@qq.com"><i class="fa fa-fw fa-envelope"></i></a>
+				<a href="#">
+					<i class="fa fa-fw fa-qq"></i>
+				</a>
+			</div>
+			<div class="blog-name"><p>Darknight's blog</p></div>
+			<div class="visit-num-count"><p>Welcome ~ No.<%= visit_num %> visitor</p></div>
+			<div class="copyright"><p><i class="fa fa-fw fa-copyright"></i>Copyright 2018 darknight. All Rights Reserved.</p></div>
+			<div class="panel-body my-panel-body"></div>
+		</div>
+	</div>
+
+</div>
+
+<div class="modal fade sys-dialog" id="loadIn" tabindex="-1" aria-hidden="true" data-backdrop=”static”>
+    <div class="modal-dialog sys-contain">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close loadin-close-btn" data-dismiss="modal" aria-hidden="true"><i class="fa fa-fw fa-close"></i></button>
+                <div class="modal-title loadin-title"><p>Load In</p></div>
+            </div>
+
+            <div class="modal-body">
+            	<form onsubmit="return login(this)" role="form">
+            		<div class="input-group">
+            			<span class="input-group-addon input-addon"><i class="fa fa-user-secret fa-fw"></i></span>
+            			<input name="username" placeholder="username" required="" type="text" class="
+            			form-control input-text">
+            		</div>
+            		<div class="form-group">
+            			<div class="hr10">
+            		</div>
+            		<div class="input-group">
+            			<span class="input-group-addon input-addon"><i class="fa fa-key fa-fw"></i></span>
+						<input name="password" placeholder="password" required="" type="password" class="form-control input-text">
+					</div>
+					<div class="form-group">
+            			<div class="hr15">
+            		</div>
+            		<div class="form-group code">
+            			<div class="code-cotain">
+            				<img src="/code" onclick="reShowCode(this)">
+            			</div>
+            			<div class="code-input">
+            				<input type="text" name="code" placeholder="code" required="" class="form-control input-text">
+            			</div>
+            		</div>
+					<div class="form-group">
+						<input value="Load In" type="submit" class="btn btn-info form-control input-btn">
+					</div>
+					<div class="form-group">
+						<input value="Cancel" type="button" class="btn btn-info form-control input-btn" data-dismiss="modal">
+					</div>
+            	</form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.bootcss.com/jquery/1.7.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="../js/jquery.rotate.js"></script>
+<script src="../js/md5.js"></script>
+<script type="text/javascript" src="../js/echo.min.js"></script>
+<script type="text/javascript" src="../js/main_page.js"></script>
+</body>
+</html>

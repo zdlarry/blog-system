@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title><%= title %></title>
+</head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="../../css/chat.css">
+<link href="../../font-awesome/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="../../css/bootstrap-datepicker.css">
+
+<body style="background-image: url(http://cn.bing.com<%= bg_url %>)">
+
+<div class="chat_title">
+	<div class="col-md-3 col-sm-3 col-xs-3 column chat_img"></div>
+	<div class="col-md-9 col-sm-9 col-xs-9 column chat_title_contain"><p>WeChat Online</p></div>
+</div>
+
+<div class="panel panel-default chat-panel">
+
+	<div class="top-contain">
+		<div class="input-group input-search">
+			<span class="input-group-addon"><i class="fa fa-search fa-fw"></i></span>
+			<input name="username" placeholder="Search people..." required="" type="text" class="
+			form-control input-text">
+		</div>
+
+		<div class="user-head">
+			<div class="user-img" style="background-image: url(<%= user['head'] %>)"></div>
+			<div class="user-name"><p><%= user['name'] %></p></div>
+		</div>
+	</div>
+
+	<div class="left-contain">
+		<div class="left-head">
+			<div class="wechat-online">
+				<p><span>We</span>Chat</p>
+			</div>
+			<div class="logout">
+				<p><i class="fa fa-times-circle-o fa-2x" aria-hidden="true" onclick="logout()"></i></p>
+			</div>
+		</div>
+
+		<div class="left-bar">
+			<div class="left-bar-body" style="background-image: url(http://cn.bing.com<%= bg_url %>)"></div>
+			<div class="navigation">
+				<div class="navigation-title">
+					<p>NAVIGATION</p>
+				</div>
+				<div class="navigation-chat" onclick="changePanel(this)">
+					<p><i class="fa-comments-o fa fa-fw"></i> CHAT</p>
+				</div>
+				<div class="navigation-self" onclick="changePanel(this)">
+					<p><i class="fa-cube fa fa-fw"></i> INFOMATION</p>
+				</div>
+				<div class="navigation-comment" onclick="changePanel(this)">
+					<p><i class="fa-pencil-square-o fa fa-fw"></i> COMMENT</p>
+				</div>
+			</div>
+			<div class="people-online">
+				<div class="online-title">
+					<p>PEOPLE ONLINE</p>
+				</div>
+
+				<div class="online-container">
+
+				</div>
+
+			</div>
+
+			<div class="left-end">
+				<div class="about">
+					<p onclick="showInfos(this)">ABOUT</p>
+				</div>
+				<div class="connect">
+					<p onclick="showInfos(this)">CONNECT</p>
+				</div>
+				<div class="copyright">
+					<p><i class="fa fa-fw fa-copyright"></i>Copyright 2018 darknight</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="middle-contain">
+
+		<div class="chat-contain-panel">
+			<div class="connect-head-bar">
+				<div class="connect-head-bar-name">
+					<p id="talkto-text">UserName here...</p>
+				</div>
+			</div>
+			<div class="connect-head-bar-profile">
+				<button class="btn btn-default" onclick="viewProfile()"><p>View Profile</p></button>
+			</div>
+
+			<div class="connect-panel">
+				<div class="wait-select"></div>
+				<div class="select-chater">
+					<p>Select user online to have a chat</p>
+				</div>
+				<div class="select-arrow">
+					<p><i class="fa fa-2x fa-reply"></i></p>
+				</div>
+			</div>
+
+			<div class="connect-head">
+				<div class="connect-head-img" style="background-image: url(<%= user['head'] %>)"></div>
+			</div>
+			<div class="connect-msg-panel">
+				<div class="input-group msg-input">
+					<input name="msg" placeholder="Type your messsge..." required="" type="text" class="
+					form-control">
+					<span class="input-group-addon"><i class="fa fa-pencil-square-o fa-fw"></i></span>
+				</div>
+			</div>
+			<div class="connect-msg-send">
+				<button class="btn btn-info" onclick="sendMsg()"><p>Send</p></button>
+			</div>
+		</div>
+
+		<div class="profile-contain-panel">
+			<div class="profile-back" style="background-image: url(http://cn.bing.com<%= bg_url %>)"></div>
+			<div class="profile-back-triangle"></div>
+			<div class="profile-name">
+				<p><%= user['name'] %></p>
+				<p>Self-Infomation</p>
+			</div>
+			<div class="my-head" style="background-image: url(<%= user['head'] %>)"></div>
+			<div class="base-info">
+				<div class="self-sex">
+
+					<div class="sex-logo"></div>
+
+					<div class="sex-select">
+
+						<select class="form-control" name="mysex">
+							<option value="1">Lady</option>
+							<option value="2">Gentleman</option>
+						</select>
+
+					</div>
+
+				</div>
+
+				<div class="self-xinzuo">
+					<div class="xinzuo-logo"></div>
+
+					<div class="xinzuo-select">
+						<select class="form-control" name="myxinzuo">
+								<option value="1">白羊座</option>
+								<option value="2">金牛座</option>
+								<option value="3">双子座</option>
+								<option value="4">巨蟹座</option>
+								<option value="5">狮子座</option>
+								<option value="6">处女座</option>
+								<option value="7">天秤座</option>
+								<option value="8">天蝎座</option>
+								<option value="9">射手座</option>
+								<option value="10">摩羯座</option>
+								<option value="11">水瓶座</option>
+								<option value="12">双鱼座</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="self-age">
+					<div class="age-logo"></div>
+					<div class="age-select">
+						<input type="text" class="form-control" name="mybirth" value="<%= info['ubirth'] == '' ? '选择日期' : info['ubirth'] %>" readonly>
+					</div>
+				</div>
+			</div>
+
+			<div class="self-info">
+				<div class="self-info-title">
+					<p>Basic Infomation:</p>
+				</div>
+				<div class="self-info-contain">
+					<div class="input-group self-mobile">
+						<span class="input-group-addon"><i class="fa fa-mobile fa-2x"></i></span>
+						<input name="mymobile" placeholder="Type mobile..." required="" type="text" class="
+						form-control" value="<%= info['utel'] %>">
+					</div>
+
+					<div class="input-group self-address">
+						<span class="input-group-addon"><i class="fa fa-location-arrow fa-1x"></i></span>
+						<input name="myaddress" placeholder="Type address..." required="" type="text" class="
+						form-control" value="<%= info['ulocation'] %>">
+					</div>
+
+					<div class="input-group self-school">
+						<span class="input-group-addon"><i class="fa fa-ravelry fa-1x"></i></span>
+						<input name="myschool" placeholder="Type school..." required="" type="text" class="
+						form-control" value="<%= info['uschool'] %>">
+					</div>
+
+					<div class="input-group self-nickname">
+						<span class="input-group-addon"><i class="fa fa-user-o fa-1x"></i></span>
+						<input name="mynick" placeholder="Type nickname..." required="" type="text" class="
+						form-control" value="<%= info['unickname'] %>">
+					</div>
+				</div>
+			</div>
+
+			<div class="self-submit">
+				<button class="btn btn-default" onclick="backToDate()"><p>Back</p></button>
+				<button class="btn btn-info" onclick="submitdata()"><p>Submit</p></button>
+			</div>
+		</div>
+
+		<div class="comment-contain-panel">
+			<div class="comment-head" style="background-image: url(http://cn.bing.com<%= bg_url %>)">
+				<p>All Post Here</p>
+			</div>
+
+			<div class="comment-body">
+
+			<% for (let item of comments) {%>
+				<div class="comment-item">
+					<div class="comment-item-head">
+						<div class="comment-item-head-img" style="background-image: url(<%= item['cheadurl'] %>)"></div>
+						<div class="comment-item-head-name">
+							<div class="comment-name"><p><%= item['cname'] %></p></div>
+							<div class="comment-from"><p><%= item['clocation'] %></p></div>
+						</div>
+					</div>
+
+					<div class="comment-contain">
+						<p><%= item['comments'] %></p>
+
+					</div>
+					<div class="comment-end">
+						<div class="like">
+							<p><i class="fa fa-fw fa-heart-o" onclick="thumbs_up()"></i> <%= item['clikenum'] %></p>
+						</div>
+						<div class="time">
+							<p><i class="fa fa-fw fa-pencil-square-o"></i> <%= item['ctime'] %></p>
+						</div>
+					</div>
+				</div>
+			<%} %>
+
+			</div>
+
+			<div class="connect-head">
+				<div class="connect-head-img" style="background-image: url(<%= user['head'] %>)"></div>
+			</div>
+			<div class="connect-msg-panel">
+				<div class="input-group msg-input">
+					<input name="comment" placeholder="Type your comment..." required="" type="text" class="
+					form-control">
+					<span class="input-group-addon"><i class="fa fa-pencil-square-o fa-fw"></i></span>
+				</div>
+			</div>
+			<div class="connect-msg-send">
+				<button class="btn btn-info" onclick="submitComment()"><p>Submit</p></button>
+			</div>
+
+		</div>
+
+		<div class="other-contain-panel">
+			<div class="profile-back" style="background-image: url(http://cn.bing.com<%= bg_url %>)"></div>
+			<div class="profile-back-triangle"></div>
+			<div class="profile-name">
+				<p id="name"><%= user['name'] %></p>
+				<p>Other-Infomation</p>
+			</div>
+			<div class="my-head" style="background-image: url(<%= user['head'] %>)"></div>
+			<div class="base-info">
+				<div class="self-sex">
+
+					<div class="sex-logo"></div>
+
+					<div class="sex-select">
+						<p id="sex">Lady</p>
+					</div>
+
+				</div>
+
+				<div class="self-xinzuo">
+					<div class="xinzuo-logo"></div>
+
+					<div class="xinzuo-select">
+						<p id="xinzuo">双鱼座</p>
+					</div>
+				</div>
+
+				<div class="self-age">
+					<div class="age-logo"></div>
+					<div class="age-select">
+						<p id="birth">8-12</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="self-info">
+				<div class="self-info-title">
+					<p>Basic Infomation:</p>
+				</div>
+				<div class="self-info-contain">
+					<div>
+						<p><span>Tel: </span> <span id="tel">1333333333</span></p>
+					</div>
+					<div>
+						<p><span>Location: </span> <span id="location"></span></p>
+					</div>
+					<div>
+						<p><span>School: </span> <span id="school"></span></p>
+					</div>
+					<div>
+						<p><span>NickName: </span> <span id="nickname"></span></p>
+					</div>
+				</div>
+			</div>
+
+			<div class="other-end" style="background-image: url(http://cn.bing.com<%= bg_url %>)">
+				<button class="btn btn-info" onclick="backToChat()"><p>Back</p></button>
+			</div>
+		</div>
+
+		<div class="middle-back">
+			<div class="spinner-load">
+			  <div class="bounce1" style="background-image: url(http://cn.bing.com<%= bg_url %>)"></div>
+			  <div class="bounce2" style="background-image: url(http://cn.bing.com<%= bg_url %>)"></div>
+			  <div class="bounce3" style="background-image: url(http://cn.bing.com<%= bg_url %>)"></div>
+			</div>
+		</div>
+
+	</div>
+
+	<div class="right-contain">
+		<div class="right-contain-search">
+			<div class="input-group msg-search">
+				<span class="input-group-addon"><i class="fa fa-search fa-fw"></i></span>
+				<input name="remain-msg" placeholder="Search messsge..." required="" type="text" class="
+				form-control">
+			</div>
+		</div>
+
+		<div class="right-contain-msg">
+
+			<!-- <div class="contain-msg-item">
+				<div class="msg-item-head"></div>
+				<div class="msg-item-name">
+					<p>49656500@qq.com</p>
+				</div>
+				<div class="msg-item-time">
+					<p>7:45 <span>pm</span></p>
+				</div>
+				<div class="msg-item-msg">
+					<p>49656500@qq.com49656500@qq.com49656500@qq.com49656500@qq.com</p>
+				</div>
+			</div> -->
+
+		</div>
+	</div>
+
+</div>
+
+
+<div class="chat_bing">
+	<div class="col-md-6 col-sm-6 col-xs-6 column chat_bing_contain"><p>壁纸来自</p></div>
+	<div class="col-md-6 col-sm-6 col-xs-6 column bing_img"></div>
+</div>
+
+<div class="chat_design">
+	<p>Desgined By Darknight</p>
+</div>
+
+<div class="modal fade sys-dialog" id="update-submit" tabindex="-1" aria-hidden="true" data-keyboard="false" data-backdrop="static">
+    <div class="modal-dialog sys-contain">
+        <div class="modal-content">
+
+            <div class="modal-header sys-contain-header">
+                <div class="modal-title"><p>Submiting</p></div>
+            </div>
+
+            <div class="modal-body submit-modal-body">
+            	<p>Submiting to database <i class="fa fa-spinner fa-spin"></i></p>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="modal fade sys-dialog" id="app-info" tabindex="-1" aria-hidden="true" data-keyboard="false" data-backdrop="static">
+    <div class="modal-dialog sys-contain">
+        <div class="modal-content">
+
+            <div class="modal-header sys-contain-header">
+                <div class="modal-title"><p>Infomation</p></div>
+            </div>
+
+            <div class="modal-body submit-modal-body">
+            	<p id="author"><i class="fa fa-fw fa-copyright"></i> Copyright 2018 darknight.</p>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.bootcss.com/jquery/1.7.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../js/bootstrap-datepicker.js"></script>
+<script type="text/javascript" src="../js/bootstrap-datepicker.zh-CN.min.js"></script>
+<script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
+<script type="text/javascript">
+	var usr = '<%- JSON.stringify(user) %>'
+	   ,sex_select = $('[name="mysex"]').find('option')
+	   ,xinzuo_select = $('[name="myxinzuo"]').find('option')
+
+	sex_select.each((index, item) => {
+		if ($(item).text() == '<%= info["usex"] %>') {
+			$(item).attr('selected', 'selected')
+		}
+	})
+
+	xinzuo_select.each((index, item) => {
+		if ($(item).text() == '<%= info["uxinzuo"] %>') {
+			$(item).attr('selected', 'selected')
+		}
+	})
+
+</script>
+<script type="text/javascript" src="../js/chatpage.js"></script>
+
+</body>
+</html>
